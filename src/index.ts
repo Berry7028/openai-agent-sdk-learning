@@ -1,5 +1,5 @@
-import { setDefaultOpenAIKey } from "@openai/agents";
-import "dotenv/config";
+import { Agent, setDefaultOpenAIKey } from "@openai/agents";
+import "dotenv/config"; //.envしか読み込まれないらしい.env.localは自動では読み込まれない
 
 const key = process.env.OPENAI_API_KEY;
 
@@ -10,5 +10,6 @@ if (!key) {
     console.log("success")
 }
 
-
 setDefaultOpenAIKey(key);
+
+
