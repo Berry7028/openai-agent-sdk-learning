@@ -1,4 +1,4 @@
-import { Agent, run, setDefaultOpenAIKey } from "@openai/agents";
+import { Agent, run, setDefaultOpenAIKey, webSearchTool } from "@openai/agents";
 import "dotenv/config"; //.envしか読み込まれないらしい.env.localは自動では読み込まれない
 
 const key = process.env.OPENAI_API_KEY;
@@ -14,13 +14,16 @@ setDefaultOpenAIKey(key);
 
 const agent = new Agent({
     name: 'haiku',
-    instructions: '俳句を生成する',
-    model: 'gpt-4.1'
+    instructions: '有名な人の俳句を検索してそれを取得して出力をする',
+    model: 'gpt-4.1',
+    tools: [ 
+        webSearchTool({ searchContextSize: "medium" })
+    ]
 })
 
 const result = await run(
     agent,
-    '俳句を生成して下さい'
+    '俳句を教えてください'
 );
 
 console.log(result.finalOutput)
