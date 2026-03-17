@@ -21,9 +21,12 @@ const agent = new Agent({
     ]
 })
 
-const result = await run(
-    agent,
-    '俳句を教えてください'
-);
-
+const result = await run( agent, '俳句を教えてください', {
+    stream: true,
+} );
+    result
+        .toTextStream({
+            compatibleWithNodeStreams: true,
+        })
+        .pipe(process.stdout)
 console.log(result.finalOutput)
