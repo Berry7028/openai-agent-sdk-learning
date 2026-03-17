@@ -1,0 +1,17 @@
+{
+  "name": "openai-agent-sdk-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@openai/agents": "^0.7.2",
+    "zod": "^4.3.6"
+  }
+}
